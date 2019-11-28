@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /home/usuario1/datos
 =======
 Beatriz Mollar Puchalt
@@ -6,3 +7,11 @@ Beatriz Mollar Puchalt
 
 
 ///////////////home/usuario1/datos 
+=======
+Beatriz Mollar Puchalt
+C:\Users\botolo\Desktop\DAWprogramacion\tarea4
+>>>>>>> f6154e65d4ddb60c340ef6c3b13d58509c082371
+
+
+Daniel MR ///////////////home/usuario1/datos 
+
