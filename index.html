@@ -1,5 +1,76 @@
 <html>
+<script>
+    let canvas = false;
+    let ctx = false;
+    let flag = false;
+    let Xprevia = 0;
+    let Xactual = 0;
+    let Yprevia = 0;
+    let Yactual = 0;
+    let punto = false;
+    let color = "grey";//Color de a linea
+    let grosor = 2;//Grosor de la linea
+    
+    function pisarra() {
+        canvas = document.getElementById('pilila');
+        ctx = canvas.getContext("2d");
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('abajo', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('arriba', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+    
 
+    function pinta() {
+        ctx.beginPath();
+        ctx.moveTo(Xprevia, Yprevia);
+        ctx.lineTo(Xactual, Yactual);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = grosor;
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function findxy(res, e) {
+        if (res == 'abajo') {
+            Xprevia = Xactual;
+            Yprevia = Yactual;
+            Xactual = e.clientX - canvas.offsetLeft;
+            Yactual = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            punto = true;
+            if (punto) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(Xactual, Yactual, 2, 2);
+                ctx.closePath();
+                punto = false;
+            }
+        }
+        if (res == 'arriba' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                Xprevia = Xactual;
+                Yprevia = Yactual;
+                Xactual = e.clientX - canvas.offsetLeft;
+                Yactual = e.clientY - canvas.offsetTop;
+                pinta();
+            }
+        }
+    }
+    </script>
 <head>
 
 </head>
@@ -11,5 +82,6 @@
 <a href="https://www.abrirllave.com/xsd/restricciones.php"> abrirllave</a><br>
 <a href="https://github.com/bemopu1980/Grupo-BBGJD.git">github</a><br>
 <a href="https://www.abrirllave.com/xsd/restricciones.php">abrirllave</a><br>
+<canvas id="pilila" width="1500" height="750" style="position:absolute;top:20%;left:10%;border:2px solid;"></canvas>
 
 </html>
