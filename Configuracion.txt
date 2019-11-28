@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 /home/usuario1/datos
+=======
+Beatriz Mollar Puchalt
+>>>>>>> 8738bb719467d3a4bb573b832f70fd21df15c9b1
+
+
+///////////////home/usuario1/datos 
